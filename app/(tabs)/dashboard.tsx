@@ -96,7 +96,7 @@ function dashboard() {
       <View className="mb-10">
       <GridChart total_reviews={total_reviews} />
       </View>
-      <View className="bg-pink-200">
+      <View >
       <TableView total_reviews={total_reviews}  />
       </View>
     </>
