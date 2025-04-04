@@ -1,4 +1,11 @@
-import { FlatList, Image, ScrollView, Text, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Searchbox from "../components/Searchbox";
 import { useRouter } from "expo-router";
 
@@ -25,7 +32,7 @@ export default function Index() {
           <View className="flex-1 my-5 ">
             <Searchbox
               onPress={() => router.push("/(tabs)/products")}
-              placeholder="Serch for Products"
+              placeholder="Search for Products"
             />
           </View>
 
@@ -39,21 +46,24 @@ export default function Index() {
               )}
             /> */}
             {buttons.map((item, index) => (
-              <Text
+              <TouchableOpacity
                 key={index}
                 onPress={() => {
                   if (item === "Go to Shopping")
                     router.push("/(tabs)/products");
                 }}
-                className="text-white text-2xl text-center bg-green-500 p-6 rounded-full"
               >
-                {item}
-              </Text>
+                <Text className="text-white text-2xl text-center bg-green-500 p-6 rounded-full">
+                  {item}
+                </Text>
+              </TouchableOpacity>
             ))}
 
-            <Text onPress={() => router.push("/(tabs)/dashboard")} className="text-white text-2xl text-center bg-red-500 p-6 rounded-full">
-              Go to Dashboard
-            </Text>
+            <TouchableOpacity onPress={() => router.push("/(tabs)/dashboard")}>
+              <Text className="text-white text-2xl text-center bg-red-500 p-6 rounded-full">
+                Go to Dashboard
+              </Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>

@@ -15,11 +15,11 @@ const TableView = ({ total_reviews }: any) => {
       <Text style={styles.cell}>{item.title}</Text>
       <Text style={styles.cell}>{item.category}</Text>
       <Text style={styles.cell}>{item.price}</Text>
-      <Text style={styles.cell}>{item.description}</Text>
-      <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
+      <Text style={styles.descriptcell} >{item.description}</Text>
+      <View style={styles.imageView}><Image source={{ uri: item.thumbnail }} style={styles.thumbnail} /></View>
       <Text style={styles.cell}>{item.username}</Text>
       <Text style={styles.cell}>{item.email}</Text>
-      <Text style={styles.cell}>{item.comment}</Text>
+      <Text style={styles.descriptcell} >{item.comment}</Text>
       <Text style={styles.cell}>{item.label}</Text>
       <Text style={styles.cell}>{item.score}</Text>
     </View>
@@ -70,17 +70,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#1976D2", 
     paddingVertical: 12,
-    paddingHorizontal: 10,
+    paddingHorizontal: 4,
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopLeftRadius: 1,
+    borderTopRightRadius: 1,
   },
   headerCell: {
     width: 150, 
     textAlign: "center", 
-    fontSize: 16,
+    fontSize: 14,
     color: "#fff", 
     fontWeight: "bold",
     paddingVertical: 12, 
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
+    paddingHorizontal: 4,
     justifyContent: "space-between",
     borderBottomWidth: 1, 
     borderBottomColor: "#ddd", 
@@ -111,6 +112,75 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
   },
+  imageView: {
+    width: 150,
+    alignItems: 'center'
+  },
+  descriptcell: {
+    width: 150, 
+    textAlign: "left", 
+    fontSize: 10,
+    color: "#333",
+    paddingVertical: 12,
+    paddingLeft: 5, 
+    lineHeight: 20,
+    justifyContent: "center", 
+    borderWidth: 1, 
+    borderColor: "#ddd", 
+  }
 });
+
+
+
+
+
+
+// const styles = StyleSheet.create({
+//   header: {
+//     flexDirection: "row",
+//     backgroundColor: "#1976D2", 
+//     paddingVertical: 12,
+//     paddingHorizontal: 10,
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//     width: "100%",
+//     borderTopLeftRadius: 8,
+//     borderTopRightRadius: 8,
+//   },
+//   headerCell: {
+//     width: 150, 
+//     textAlign: "center", 
+//     fontSize: 16,
+//     color: "#fff", 
+//     fontWeight: "bold",
+//     paddingVertical: 12, 
+//     justifyContent: "center", 
+//     borderWidth: 1, 
+//     borderColor: "#fff", 
+//   },
+//   row: {
+//     flexDirection: "row",
+//     justifyContent: "space-between",
+//     borderBottomWidth: 1, 
+//     borderBottomColor: "#ddd", 
+//     width: "100%",
+//   },
+//   cell: {
+//     width: 150, 
+//     textAlign: "center", 
+//     fontSize: 14,
+//     color: "#333",
+//     paddingVertical: 12, 
+//     lineHeight: 20,
+//     justifyContent: "center", 
+//     borderWidth: 1, 
+//     borderColor: "#ddd", 
+//   },
+//   thumbnail: {
+//     width: 50,
+//     height: 50,
+//     borderRadius: 25,
+//   },
+// });
 
 export default TableView;

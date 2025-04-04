@@ -13,7 +13,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link, useRouter } from "expo-router";
 
 const login = () => {
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const backend = "https://neubaitics-fullstack-ai-backend.vercel.app";
@@ -36,8 +35,8 @@ const login = () => {
       if (res.data.success) {
         console.log(res.data.user);
 
-        setEmail('');
-        setPassword('')
+        setEmail("");
+        setPassword("");
         // Show a success toast
         Toast.show({
           type: "success",
@@ -64,14 +63,13 @@ const login = () => {
         });
       }
     } catch (error) {
-      if(error instanceof Error){
-        console.log(error.message)
+      if (error instanceof Error) {
+        console.log(error.message);
         Toast.show({
           type: "error",
           text1: "Login failed.",
         });
       }
-      
     }
   };
 
@@ -106,12 +104,9 @@ const login = () => {
       {/* Submit Button */}
       <Button title="Submit" onPress={HandleLogin} />
 
-      <TouchableOpacity>
-        <Text
-          onPress={() => router.push("/page/Signup")}
-          className="text-blue-500 text-sm mt-2 underline"
-        >
-          if you don't have account, do signup
+      <TouchableOpacity onPress={() => router.push("/page/Signup")}>
+        <Text className="text-blue-500 text-sm mt-4 underline">
+          If you don't have an account, go to Signup
         </Text>
       </TouchableOpacity>
     </View>

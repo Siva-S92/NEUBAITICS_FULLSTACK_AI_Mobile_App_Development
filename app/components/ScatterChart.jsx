@@ -57,13 +57,13 @@ export default function GridChart({ total_reviews }) {
   }
 
   return (
-    <View>
-      <Text style={{ textAlign: "center", fontSize: 20, marginBottom: 15 }}>
-        Reviews Line Chart
+    <View className="mb-5 mt-2">
+      <Text style={{ textAlign: "center", fontSize: 20, marginBottom: 5 }}>
+        Sentiments in Reviews
       </Text>
 
       {/* Scrollable Container */}
-      <ScrollView horizontal style={{ paddingTop: 10 }}>
+      <ScrollView horizontal style={{ paddingTop: 2 }}>
         <View style={{ minWidth: 600 }}>
           {/* Line Chart */}
           <LineChart

@@ -93,7 +93,7 @@ function dashboard() {
           </Text>
         </TouchableOpacity>
       </View>
-      <View className="mb-10">
+      <View className="bg-pink-300">
       <GridChart total_reviews={total_reviews} />
       </View>
       <View >
