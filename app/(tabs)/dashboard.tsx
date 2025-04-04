@@ -49,7 +49,9 @@ function dashboard() {
   const logout = async () => {
     try {
       await AsyncStorage.clear();
+
       router.push("/(tabs)/login");
+
       Toast.show({
         type: "success",
         text1: "Logged out!!!!",
@@ -94,10 +96,10 @@ function dashboard() {
         </TouchableOpacity>
       </View>
       <View className="bg-pink-300">
-      <GridChart total_reviews={total_reviews} />
+        <GridChart total_reviews={total_reviews} />
       </View>
-      <View >
-      <TableView total_reviews={total_reviews}  />
+      <View>
+        <TableView total_reviews={total_reviews} />
       </View>
     </>
   );
