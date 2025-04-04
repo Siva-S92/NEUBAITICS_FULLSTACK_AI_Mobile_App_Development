@@ -1,45 +1,73 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import React from "react";
+import { Tabs } from "expo-router";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarItemStyle: {
+          justifyContent: "center",
+          alignItems: "center",
+        },
+        tabBarStyle: {
+          backgroundColor: "lightpink",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
+          headerShown: false,
+          tabBarIcon: () => (
+            <>
+              <Icon name="home" size={30} color="dodgerblue" />
+            </>
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="products"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Products",
+          headerShown: false,
+          tabBarIcon: () => (
+            <>
+              <Icon name="shopping-bag" size={30} color="dodgerblue" />
+            </>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="dashboard"
+        options={{
+          title: "Dashboard",
+          headerShown: false,
+          tabBarIcon: () => (
+            <>
+              <Icon name="dashboard" size={30} color="dodgerblue" />
+            </>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="login"
+        options={{
+          title: "Login",
+          headerShown: false,
+          tabBarIcon: () => (
+            <>
+              <Icon name="account-circle" size={30} color="dodgerblue" />
+            </>
+          ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default _layout;
